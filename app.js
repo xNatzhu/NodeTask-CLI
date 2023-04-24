@@ -14,11 +14,10 @@ const main = async ()=>{
             case 1:
                 const desc = await inquirerInput("Describa tu tarea: ", "Descripcion")
                 tareas.crearTareas(desc)
-
                 console.log(desc);
                 break;
             case 2:
-                console.log(tareas.listado)
+                console.log(tareas.listadoDeTareas)
                 break;        
 
         }
