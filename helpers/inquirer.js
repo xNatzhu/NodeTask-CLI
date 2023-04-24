@@ -66,4 +66,25 @@ const inquirerPause = async()=>{
     return inputCaracter
 }
 
-export {inquirerMenu, inquirerPause}
+
+const inquirerInput = async(message)=>{
+    const inputPreguntas = [{
+        type:"input",
+        name:"desc",
+        message,
+        validate(value){
+            if(value.length === 0){
+                return "Porfavor ingrese un valor";
+            }
+            return true
+        }
+    }]
+
+    const {desc} = await inquirer.prompt(inputPreguntas);
+    return desc
+
+}
+
+export {inquirerMenu, inquirerPause, inquirerInput}
+
+
