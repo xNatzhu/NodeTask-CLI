@@ -23,8 +23,7 @@ class Tareas{
         const tarea = new Tarea(desc);
 
         //Vinculamos la constante creada.
-        this.listado[tarea.id] = tarea;
-
+        this.listado[tarea.id] = tarea; //vamos especificar que en el listado queremos que nos este guardando la tarea.id, una vez que lo seleccione guardara su tarea
 
     }
 }

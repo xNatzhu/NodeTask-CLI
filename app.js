@@ -1,4 +1,5 @@
 import colors from "colors";
+import guardarDb from "./helpers/guardarArchivo.js";
 import {inquirerMenu, inquirerPause,inquirerInput} from "./helpers/inquirer.js";
 import Tareas from "./models/tareas.js";
 
@@ -21,6 +22,9 @@ const main = async ()=>{
                 break;        
 
         }
+        
+        //envio de informacion del listado de tareas para el almacenamiento de la data.
+        guardarDb(tareas.listadoDeTareas)
 
 
 
