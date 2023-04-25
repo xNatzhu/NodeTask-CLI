@@ -17,6 +17,17 @@ class Tareas{
         return listadoArray
     }
 
+    cargarTarea(tarea = []){
+        //Hacemos un metodo que nos permita cargar los datos en la DB.
+
+        // Lo que realiza es traer todas las tarea de la DB como argumento.
+        tarea.map(tarea=>{
+            //Luego mapeamos el objeto tareas en porciones de tareas inviduales para poder guardarlas y almacenarlas en listado.
+            this.listado[tarea.id] = tarea;
+        })
+
+    }
+
     crearTareas(desc){
         // la tarea se ira almancenando en el listado.
 

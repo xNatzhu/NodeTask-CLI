@@ -1,5 +1,5 @@
 import colors from "colors";
-import guardarDb from "./helpers/guardarArchivo.js";
+import {guardarDb, leerDb} from "./helpers/interaccionesDb.js";
 import {inquirerMenu, inquirerPause,inquirerInput} from "./helpers/inquirer.js";
 import Tareas from "./models/tareas.js";
 
@@ -8,7 +8,15 @@ import Tareas from "./models/tareas.js";
 
 const main = async ()=>{
     let opt = ""
+
     const tareas = new Tareas()
+
+    const leer = leerDb()
+    
+    if(leer){
+        tareas.cargarTarea(leer)
+    }
+    
     do {
         opt = await inquirerMenu()
         switch (opt) {
@@ -20,16 +28,10 @@ const main = async ()=>{
             case 2:
                 console.log(tareas.listadoDeTareas)
                 break;        
-
         }
-        
+
         //envio de informacion del listado de tareas para el almacenamiento de la data.
         guardarDb(tareas.listadoDeTareas)
-
-
-
-
-
         await inquirerPause()
         
     } while (opt !== 0);

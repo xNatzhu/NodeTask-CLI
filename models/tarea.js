@@ -4,7 +4,7 @@ class Tarea{
     constructor(description){
         this.description = description
         this.id = uuidv4();
-        this.creationDate = false;
+        this.completed = false;
     }
 }
 
