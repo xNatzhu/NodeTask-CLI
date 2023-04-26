@@ -65,6 +65,12 @@ class Tareas{
         this.listado[tarea.id] = tarea; //vamos especificar que en el listado queremos que nos este guardando la tarea.id, una vez que lo seleccione guardara su tarea
 
     }
+
+    eliminarTarea(id){
+        if(this.listado[id]){
+            return delete this.listado[id]
+        }
+    }
 }
 
 export default Tareas

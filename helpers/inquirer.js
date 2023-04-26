@@ -85,6 +85,38 @@ const inquirerInput = async(message)=>{
 
 }
 
-export {inquirerMenu, inquirerPause, inquirerInput}
+const inquirerTareaBorrar = async(tareas)=>{
+    const choices = tareas.map((tarea, id)=>{
+        let index =`${id + 1}.`.green
+        return {
+            value:tarea.id,
+            name:`${index} ${tarea.description}`,
+        }
+    }
+    )
+
+    const preguntas = {
+        type:"list",
+        name:"id",
+        message:"Borrar",
+        choices
+    }
+
+    const {id} = await inquirer.prompt(preguntas);
+    return id
+}
+
+const inquirerConfirmar = async(message)=>{
+    const preguntas = {
+        type:"confirm", //Este type nos permite poder realizar una confirmacion.
+        name:"ok",
+        message
+    }
+
+    const {ok} = await inquirer.prompt(preguntas);
+    return ok
+}
+
+export {inquirerMenu, inquirerPause, inquirerInput, inquirerTareaBorrar, inquirerConfirmar}
 
 
