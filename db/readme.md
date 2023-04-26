@@ -1,0 +1,1 @@
+En esta carpeta se almacenará un archivo llamado data.json que servirá como base de datos para el almacenamiento de información relacionada con la creación, movimiento y eliminación de tareas.
