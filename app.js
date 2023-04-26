@@ -27,7 +27,15 @@ const main = async ()=>{
                 break;
             case 2:
                 console.log(tareas.listadoCompletado())
-                break;        
+                break;
+                
+            case 3:
+                console.log(tareas.listarTareasPendientesCompletadas(true));
+                break
+
+            case 4: 
+                console.log(tareas.listarTareasPendientesCompletadas(false));
+                break
         }
         //envio de informacion del listado de tareas para el almacenamiento de la data.
         guardarDb(tareas.listadoDeTareas)

@@ -30,17 +30,31 @@ class Tareas{
     listadoCompletado(){
         console.log();
         const listadoArray = this.listadoDeTareas
-
         listadoArray.map((tarea, index)=>{
-            let id = index + 1
-            if(tarea.completed){
-                return console.log(`${(id+". ").green} ${tarea.description} - ${"Tarea Completada".green}`)
-            }else{
-                return console.log(`${(id+". ").green} ${tarea.description} - ${"Tarea Pendiente".red}`)
-            }
+            const id = index + 1;
+            const estado = tarea.completed ? 'Tarea Completada'.green : 'Tarea Pendiente'.cyan;
+            console.log(`${(id+". ").green} ${tarea.description} :: ${estado}`);
+        })
+        return "";
+        
+    }
+
+    listarTareasPendientesCompletadas(estados){
+        console.log();
+        const listadoArray = this.listadoDeTareas
+
+        const filtradoDeTarea = listadoArray.filter((tarea)=>tarea.completed == estados) //El filter nos permite poder añadir en un array el filtrado de datos que le estamos enviando en este caso le decimos que nos guarda en un array dependiendo del estado añadido.
+        
+        filtradoDeTarea.map((tarea, index)=>{
+            const id = index + 1;
+            const estado = tarea.completed ? 'Tarea Completada'.green : 'Tarea Pendiente'.cyan;
+            console.log(`${(id+". ").green} ${tarea.description} :: ${estado}`);
+            
         })
         return "";
     }
+
+
 
     crearTareas(desc){
         // la tarea se ira almancenando en el listado.
