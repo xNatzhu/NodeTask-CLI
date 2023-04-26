@@ -47,7 +47,7 @@ const preguntas = [{
 const inquirerMenu = async()=>{
     console.clear()
     console.log("=========================".green);
-    console.log("Panel de la App".white);
+    console.log("Dashboard: NodeTask".white);
     console.log("========================= \n".green);//altgr + } = ` ----  altgr + ? = \
 
     const { opcion } = await inquirer.prompt(preguntas) //El prompt en la dependencia esta esperando recibir el objeto que va estar almacenando las preguntas con sus opciones.

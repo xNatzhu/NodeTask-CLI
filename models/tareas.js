@@ -27,6 +27,20 @@ class Tareas{
         })
 
     }
+    listadoCompletado(){
+        console.log();
+        const listadoArray = this.listadoDeTareas
+
+        listadoArray.map((tarea, index)=>{
+            let id = index + 1
+            if(tarea.completed){
+                return console.log(`${(id+". ").green} ${tarea.description} - ${"Tarea Completada".green}`)
+            }else{
+                return console.log(`${(id+". ").green} ${tarea.description} - ${"Tarea Pendiente".red}`)
+            }
+        })
+        return "";
+    }
 
     crearTareas(desc){
         // la tarea se ira almancenando en el listado.

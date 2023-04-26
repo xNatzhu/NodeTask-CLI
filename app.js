@@ -26,10 +26,9 @@ const main = async ()=>{
                 console.log(desc);
                 break;
             case 2:
-                console.log(tareas.listadoDeTareas)
+                console.log(tareas.listadoCompletado())
                 break;        
         }
-
         //envio de informacion del listado de tareas para el almacenamiento de la data.
         guardarDb(tareas.listadoDeTareas)
         await inquirerPause()
