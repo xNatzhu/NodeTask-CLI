@@ -38,7 +38,6 @@ const main = async ()=>{
                 break
             case 5:
                 const ids = await inquirerTareaListadoCheck(tareas.listadoDeTareas)
-                console.log(ids);
                 tareas.togleCompletadas(ids);
                 break
             case 6:
