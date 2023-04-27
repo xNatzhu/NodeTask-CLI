@@ -1,6 +1,6 @@
 import colors from "colors";
 import {guardarDb, leerDb} from "./helpers/interaccionesDb.js";
-import {inquirerMenu, inquirerPause,inquirerInput, inquirerTareaBorrar, inquirerConfirmar} from "./helpers/inquirer.js";
+import {inquirerMenu, inquirerPause,inquirerInput, inquirerTareaBorrar, inquirerConfirmar, inquirerTareaListadoCheck} from "./helpers/inquirer.js";
 import Tareas from "./models/tareas.js";
 
 
@@ -36,7 +36,11 @@ const main = async ()=>{
             case 4: 
                 console.log(tareas.listarTareasPendientesCompletadas(false));
                 break
-
+            case 5:
+                const ids = await inquirerTareaListadoCheck(tareas.listadoDeTareas)
+                console.log(ids);
+                tareas.togleCompletadas(ids);
+                break
             case 6:
                 const id = await inquirerTareaBorrar(tareas.listadoDeTareas) // el await va esperar que la tarea finalice.
                 const confirmar = await inquirerConfirmar("¿Desea eliminar esta tarea?")

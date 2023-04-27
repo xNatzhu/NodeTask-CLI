@@ -106,6 +106,28 @@ const inquirerTareaBorrar = async(tareas)=>{
     return id
 }
 
+const inquirerTareaListadoCheck = async(tareas)=>{
+    const choices = tareas.map((tarea, id)=>{
+        let index =`${id + 1}.`.green
+        return {
+            value:tarea.id,
+            name:`${index} ${tarea.description}`,
+            checked:tarea.completed,
+        }
+    }
+    )
+
+    const preguntas = {
+        type:"checkbox",
+        name:"ids",
+        message:"Selecciones",
+        choices
+    }
+
+    const {ids} = await inquirer.prompt(preguntas);
+    return ids
+}
+
 const inquirerConfirmar = async(message)=>{
     const preguntas = {
         type:"confirm", //Este type nos permite poder realizar una confirmacion.
@@ -117,6 +139,6 @@ const inquirerConfirmar = async(message)=>{
     return ok
 }
 
-export {inquirerMenu, inquirerPause, inquirerInput, inquirerTareaBorrar, inquirerConfirmar}
+export {inquirerMenu, inquirerPause, inquirerInput, inquirerTareaBorrar, inquirerConfirmar, inquirerTareaListadoCheck}
 
 

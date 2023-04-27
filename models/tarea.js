@@ -5,6 +5,7 @@ class Tarea{
         this.description = description
         this.id = uuidv4();
         this.completed = false;
+        this.taskDate = null;
     }
 }
 

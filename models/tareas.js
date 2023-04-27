@@ -71,6 +71,24 @@ class Tareas{
             return delete this.listado[id]
         }
     }
+
+    togleCompletadas(ids){
+
+        ids.forEach(id=>{
+            const tarea = this.listado[id]
+            if(!tarea.completed){
+                tarea.completed = true;
+            }
+        })
+
+        this.listadoDeTareas.forEach(tarea=>{
+            if(!ids.includes(tarea.id)){
+                this.listado[tarea.id].completed = false
+            }
+        })
+        
+        
+    } 
 }
 
 export default Tareas
